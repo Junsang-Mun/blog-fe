@@ -1,8 +1,72 @@
 body {
 	font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-	color: #222
+	color: whitesmoke;
+	background-color: #222;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+
+}
+
+body::-webkit-scrollbar{
+	display: none;
+}
+
+::-moz-selection {
+	color: #222;
+	background-color: whitesmoke;
+}
+
+::selection {
+	color: #222;
+	background-color: whitesmoke;
 }
 
 nav {
-	color: aqua;
+	overflow: hidden;
+	height: 4em;
+	background-color: #222;
+	border-bottom: 0.3em solid whitesmoke;
+}
+
+nav a {
+	float: left;
+	font-size: 1em;
+	color: white;
+	text-align: center;
+	padding: 1em 0.5em;
+	text-decoration: none;
+	transition: 300ms;
+}
+
+nav a:hover {
+	background-color: darkslategray;
+}
+
+a {
+	color: orangered;
+}
+
+p {
+	font-size: 1em;
+	line-height: 2em;
+}
+
+h1 {
+	font-size: 3em;
+}
+
+h2 {
+	font-size: 2.5em;
+}
+
+h3 {
+	font-size: 2em;
+}
+
+.content {
+	padding: 3em;
+}
+
+.editorWrapper {
+	background-color: #fff;
 }
