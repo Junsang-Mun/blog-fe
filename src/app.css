@@ -53,6 +53,12 @@ p {
 
 h1 {
 	font-size: 3em;
+	text-decoration: underline 0.1em rgba(0, 0, 0, 0);
+	transition: text-decoration-color 300ms
+}
+
+h1:hover {
+	text-decoration-color: rgba(255, 255, 255, 1);
 }
 
 h2 {

@@ -16,14 +16,12 @@
 	});
 	const displayContent = (id) => {
 		console.log(id);
+		window.location.href = `/post/${id}`;
 	}
 </script>
 
 {#each data as post}
-	<h1>{post.title}</h1>
+	<h1 on:click={displayContent(post.id)} on:keydown={() => {}} style="cursor: pointer;">{post.title}</h1>
 	<p>{@html post.body}</p>
-	{#if post.id !== undefined}
-		<a on:click={displayContent(post.id)} href="/post/{post.id}">Go to post</a>
-	{/if}
 	<br>
 {/each}
