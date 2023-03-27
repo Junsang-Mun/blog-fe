@@ -51,14 +51,17 @@ p {
 	line-height: 2em;
 }
 
-h1 {
-	font-size: 3em;
+.underline {
 	text-decoration: underline 0.1em rgba(0, 0, 0, 0);
 	transition: text-decoration-color 300ms
 }
 
-h1:hover {
+.underline:hover {
 	text-decoration-color: rgba(255, 255, 255, 1);
+}
+
+h1 {
+	font-size: 3em;
 }
 
 h2 {

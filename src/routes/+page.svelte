@@ -21,7 +21,7 @@
 </script>
 
 {#each data as post}
-	<h1 on:click={displayContent(post.id)} on:keydown={() => {}} style="cursor: pointer;">{post.title}</h1>
+	<h1 on:click={displayContent(post.id)} on:keydown={() => {}} class="underline">{post.title}</h1>
 	<p>{@html post.body}</p>
 	<br>
 {/each}
