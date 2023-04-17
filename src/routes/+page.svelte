@@ -22,6 +22,6 @@
 
 {#each data as post}
 	<h1 on:click={displayContent(post.id)} on:keydown={() => {}} class="underline">{post.title}</h1>
-	<p>{@html post.body}</p>
+	<p>{@html post.body.split(' ').slice(0,5).join(' ') + '...'}</p>
 	<br>
 {/each}
