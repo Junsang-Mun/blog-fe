@@ -4,6 +4,7 @@
 	import Editor from '@toast-ui/editor';
 	import '@toast-ui/editor/dist/toastui-editor.css';
 	import '@toast-ui/editor/dist/theme/toastui-editor-dark.css';
+	import apiUrl from "../../urls.svelte";
 	let texteditor, toastEditor;
 	let currentDate = new Date();
 	const offset = currentDate.getTimezoneOffset();
@@ -20,9 +21,19 @@
 		})
 	})
 
-	function submitNewPost() {
+	async function submitNewPost() {
 		console.log(`${pTitle}\n${pCategory}\n${pDate}`);
 		console.log(toastEditor.getHTML());
+		const res = await fetch(`${apiUrl}/posts`, {
+			method: 'POST',
+			body: JSON.stringify({
+				title: pTitle,
+				category: pCategory,
+				date: pDate,
+				body: toastEditor.getHTML(),
+			})
+		});
+		alert(`글이 성공적으로 저장되었습니다.\n${res[0]}`);
 	}
 </script>
 

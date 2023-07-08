@@ -2,8 +2,9 @@
 	import { onMount } from "svelte";
 	import { error } from "@sveltejs/kit";
 	import { page } from "$app/stores";
-	const apiUrl = "http://localhost:8080/api";
-	let data = {title: '', content: 'Please wait, Loading...', date: ''};
+	import apiUrl from "../../../urls.svelte";
+
+	let data = {title: '', content: 'Loading... Please wait', date: ''};
 
 	onMount(async () => {
 		const result = await fetch(`${apiUrl}/posts/${$page.params.slug}`);

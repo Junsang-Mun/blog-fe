@@ -11,7 +11,7 @@
 			});
 		}).catch((e) => {
 			console.error(e);
-			data = [{title: "Sorry, something went wrong", body: "Please check again later."}]
+			window.location.href = `/404`;
 		})
 	});
 	const displayContent = (id) => {
