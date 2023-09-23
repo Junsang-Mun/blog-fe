@@ -1,6 +1,6 @@
 <script>
 	import 'carbon-components-svelte/css/g80.css';
-	// import Article from './article.svelte';
+	import Article from './article.svelte';
 	import Tag from './tag.svelte';
 	import Copyright from './copyright.svelte'
 	import Main from './main.svelte';
@@ -19,7 +19,7 @@
 	} from 'carbon-components-svelte';
 	let isSideNavOpen = false;
 	let pageToShow = 'main';
-	let data = '42';
+	let data = '최근';
 
 	function changePageToShow(new_page, new_data) {
 		pageToShow = new_page;
@@ -57,9 +57,11 @@
 
 <Content>
 	{#if pageToShow == 'tag'}
-		<Tag {data}/>
+		<Tag on:updateView={(event) => changePageToShow(event.detail.new_page, event.detail.new_data)} {data}/>
 	{:else if pageToShow == 'copyright'}
 		<Copyright {data}/>
+	{:else if pageToShow == 'article'}
+		<Article {data}/>
 	{:else}
 		<Main {data}/>
 	{/if}
