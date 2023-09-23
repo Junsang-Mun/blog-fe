@@ -2,6 +2,7 @@
 	import 'carbon-components-svelte/css/g80.css';
 	// import Article from './article.svelte';
 	import Tag from './tag.svelte';
+	import Copyright from './copyright.svelte'
 	import Main from './main.svelte';
 	import {
 		Header,
@@ -50,12 +51,15 @@
 		<SideNavLink text="일상 🏡" on:click={() => changePageToShow('tag', '일상')}/>
 		<SideNavDivider />
 		<SideNavLink text="검색 🔎" on:click={() => changePageToShow('tag', '검색')}/>
+		<SideNavLink text="Copyright Notice" on:click={() => changePageToShow('copyright', '')}/>
 	</SideNavItems>
 </SideNav>
 
 <Content>
 	{#if pageToShow == 'tag'}
 		<Tag {data}/>
+	{:else if pageToShow == 'copyright'}
+		<Copyright {data}/>
 	{:else}
 		<Main {data}/>
 	{/if}

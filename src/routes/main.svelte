@@ -1,35 +1,14 @@
 <script>
 	import 'carbon-components-svelte/css/g80.css';
-	export let data;
 </script>
 
 <h1>💻 개발바닥 🐶</h1>
 <br/>
-<p>
-	Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa.
-	Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.
-	Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus.
-	Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-	Proin pharetra nonummy pede. Mauris et orci. Aenean nec lorem. In porttitor. Donec laoreet nonummy augue.
-	Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.
-</p>
-<br/>
-<p>
-	Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa.
-	Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.
-	Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus.
-	Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-	Proin pharetra nonummy pede. Mauris et orci. Aenean nec lorem. In porttitor. Donec laoreet nonummy augue.
-	Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.
-</p>
-<br/>
-<p>
-	Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa.
-	Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.
-	Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus.
-	Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-	Proin pharetra nonummy pede. Mauris et orci. Aenean nec lorem. In porttitor. Donec laoreet nonummy augue.
-	Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.
-</p>
-
-<p>{data}</p>
+<p>개발바닥은 누군가의 기록 저장소입니다.</p>
+<p>익명은 아니지만 마치 익명인 것 처럼 쓰고 있습니다</p>
+<br>
+<p>좌측 상단의 Tag별 분류를 눌러 Tag별로 글을 읽으실 수도 있고</p>
+<p>상단의 최근 포스트를 눌러 최신 포스트를 보실 수도 있습니다.</p>
+<br>
+<p>만에 하나 저와 연락이 필요하시다면</p>
+<p>상단의 Contact를 통해 연락해주세요.</p>
