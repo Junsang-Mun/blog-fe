@@ -1,14 +1,34 @@
-import { Deta } from 'deta';
-
-const deta = Deta('your_deta_space_key');
-const db = deta.Base('posts');
-
-export async function _get() {
-  const posts = await db.fetch({}).next();
-  return { body: posts };
+export async function _createArticle(article) {
+  fetch(`${import.meta.env.API_URL}/items`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(article),
+    'X-API-KEY': import.meta.env.X_API_KEY,
+  })
 }
 
-export async function _post(req) {
-  const post = await db.put(JSON.parse(req.body));
-  return { body: post };
+export async function _readArticle(key) {
+  fetch(`${import.meta.env.API_URL}/items/${key}`, {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+    'X-API-KEY': import.meta.env.X_API_KEY,
+  })
+}
+
+export async function _updateArticle(article) {
+  fetch(`${import.meta.env.API_URL}/items`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(article),
+    'X-API-KEY': import.meta.env.X_API_KEY,
+  })
+}
+
+export async function _deleteArticle(article) {
+  fetch(`${import.meta.env.API_URL}/items`, {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(article),
+    'X-API-KEY': import.meta.env.X_API_KEY,
+  })
 }
