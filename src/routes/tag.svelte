@@ -33,11 +33,9 @@
 
 {#if data == '최근'}
 	<h1>최근 포스트</h1>
-	<br>
 	<p>최근에 찐 글을 모아두었습니다. 따끈따끈🔥</p>
 {:else}
 	<h1>{data}</h1>
-	<br>
 	<p>{data} 태그로 분류된 기록을 모아두었습니다.</p>
 {/if}
 <hr style="border: solid 0.05em white;">
