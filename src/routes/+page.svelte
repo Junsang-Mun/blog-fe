@@ -6,45 +6,16 @@
 		HeaderNav,
 		HeaderNavItem,
 		HeaderNavMenu,
-		HeaderAction,
-		HeaderPanelLinks,
-		HeaderPanelDivider,
-		HeaderPanelLink,
 		SideNav,
 		SideNavItems,
-		SideNavMenu,
-		SideNavMenuItem,
 		SideNavLink,
 		SkipToContent,
 		Content,
-		Grid,
-		Row,
-		Column,
-		TileGroup,
-		RadioTile,
-
 		SideNavDivider
 
 	} from 'carbon-components-svelte';
-	import { expoIn } from 'svelte/easing';
 
 	let isSideNavOpen = false;
-	let isOpen = false;
-	let selected = '0';
-	let transitions = {
-		'0': {
-			text: 'Default (duration: 200ms)',
-			value: { duration: 200 }
-		},
-		'1': {
-			text: 'Custom (duration: 600ms, delay: 50ms, easing: expoIn)',
-			value: { duration: 600, delay: 50, easing: expoIn }
-		},
-		'2': {
-			text: 'Disabled',
-			value: false
-		}
-	};
 </script>
 
 <Header platformName="💻개발바닥🐶" bind:isSideNavOpen>
