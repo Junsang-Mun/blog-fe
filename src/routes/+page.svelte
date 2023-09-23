@@ -12,9 +12,7 @@
 		SkipToContent,
 		Content,
 		SideNavDivider
-
 	} from 'carbon-components-svelte';
-
 	let isSideNavOpen = false;
 </script>
 
