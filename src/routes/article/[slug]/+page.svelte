@@ -1,20 +1,4 @@
 <script>
-	import { isDarkMode } from '../../../stores/theme.js';
-	import { onMount } from 'svelte';
-
-	onMount(() => {
-		const unsubscribe = isDarkMode.subscribe((value) => {
-			if (value) {
-				document.body.classList.add('dark');
-				console.log(document.body.classList);
-			} else {
-				document.body.classList.remove('dark');
-				console.log(document.body.classList);
-			}
-		});
-
-		return unsubscribe;
-	});
 </script>
 
 <div class="page">
@@ -46,10 +30,7 @@
 			흙으로 별 까닭이요, 가을로 봅니다. 밤이 이런 위에 다하지 까닭입니다. 풀이 부끄러운 가득
 			봅니다.
 		</p>
-	</div>
 
-	<label class="switch">
-		<input type="checkbox" bind:checked={$isDarkMode} />
-		<span class="slider round" />
-	</label>
+		<a href="https://naver.com">test</a>
+	</div>
 </div>

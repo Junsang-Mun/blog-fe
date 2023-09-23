@@ -1,23 +1,7 @@
 <script>
-	import { isDarkMode } from '../stores/theme.js';
-	import { onMount } from 'svelte';
-	
 	function openUrl(url) {
 		window.open(url, "_blank");
 	}
-	onMount(() => {
-		const unsubscribe = isDarkMode.subscribe((value) => {
-			if (value) {
-				document.body.classList.add('dark');
-				console.log(document.body.classList);
-			} else {
-				document.body.classList.remove('dark');
-				console.log(document.body.classList);
-			}
-		});
-
-		return unsubscribe;
-	});
 </script>
 
 <div class="page">
@@ -29,9 +13,4 @@
 			<button class="social round" id="facebook" on:click={() => openUrl("https://www.facebook.com/profile.php?id=100032805280715")}><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="To My Facebook Profile"/></button>
 		</div>
 	</div>
-
-	<label class="switch">
-		<input type="checkbox" bind:checked={$isDarkMode} />
-		<span class="slider round" />
-	</label>
 </div>
