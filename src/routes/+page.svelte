@@ -1,4 +1,6 @@
 <script>
+	import { onMount } from 'svelte';
+	import { page } from '$app/stores';
 	import 'carbon-components-svelte/css/g80.css';
 	import Article from './article.svelte';
 	import Tag from './tag.svelte';
@@ -20,11 +22,17 @@
 	let isSideNavOpen = false;
 	let pageToShow = 'main';
 	let data = '최근';
+	const urlParam = $page.url.searchParams.get('article');
 
 	function changePageToShow(new_page, new_data) {
 		pageToShow = new_page;
 		data = new_data;
 	}
+	onMount(() => {
+		if (urlParam) {
+			changePageToShow('article', urlParam);
+		}
+	});
 </script>
 
 <Header platformName="💻개발바닥🐶" bind:isSideNavOpen>
