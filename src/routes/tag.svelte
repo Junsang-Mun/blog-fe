@@ -43,13 +43,16 @@
 {#if data == '최근'}
 	<h1>최근 포스트</h1>
 	<p>최근에 찐 글을 모아두었습니다. 따끈따끈🔥</p>
+{:else if data == '모든 글'}
+	<h1>{data}</h1>
+	<p>모든 글의 모음입니다.</p>
 {:else}
 	<h1>{data}</h1>
 	<p>{data} 태그로 분류된 기록을 모아두었습니다.</p>
 {/if}
 <hr style="border: solid 0.05em white;">
 {#each mock_data as d}
-	{#if data == '최근'}
+	{#if data == '최근' || data == '모든 글'}
 		<br>
 		<div on:click={() => updateView(d.key)} on:keypress={() => updateView(d.key)} style="cursor:pointer">
 			<h1>{d.title}</h1>

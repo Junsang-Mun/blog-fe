@@ -4,6 +4,7 @@
 	import 'carbon-components-svelte/css/g80.css';
 	import Article from './article.svelte';
 	import Tag from './tag.svelte';
+	import Search from './search.svelte';
 	import Copyright from './copyright.svelte'
 	import Main from './main.svelte';
 	import {
@@ -54,11 +55,14 @@
 
 <SideNav bind:isOpen={isSideNavOpen}>
 	<SideNavItems>
+		<SideNavLink href="/" text="💻개발바닥🐶 홈" on:click={() => changePageToShow('main', undefined)}/>
+			<SideNavDivider />
+		<SideNavLink text="모든 글 📝" on:click={() => changePageToShow('tag', '모든 글')}/>
 		<SideNavLink text="개발 🐶🐾" on:click={() => changePageToShow('tag', '개발')} />
 		<SideNavLink text="커뮤니티 🎤" on:click={() => changePageToShow('tag', '커뮤니티')}/>
 		<SideNavLink text="일상 🏡" on:click={() => changePageToShow('tag', '일상')}/>
 		<SideNavDivider />
-		<SideNavLink text="검색 🔎" on:click={() => changePageToShow('tag', '검색')}/>
+		<SideNavLink text="검색 🔎" on:click={() => changePageToShow('search', '')}/>
 		<SideNavLink text="Copyright Notice" on:click={() => changePageToShow('copyright', '')}/>
 	</SideNavItems>
 </SideNav>
@@ -70,6 +74,8 @@
 		<Copyright {data}/>
 	{:else if pageToShow == 'article'}
 		<Article {data}/>
+	{:else if pageToShow == 'search'}
+		<Search {data}/>
 	{:else}
 		<Main {data}/>
 	{/if}
