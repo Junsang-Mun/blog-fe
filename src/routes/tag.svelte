@@ -16,7 +16,7 @@
 			title: '청소를 했다',
 			content: '내용2',
 			date: '2020-01-01',
-			tags: '일상',
+			tags: '일상상',
 			key: 'h54av-4f5a4'
 		},
 		{
@@ -51,20 +51,25 @@
 	<p>{data} 태그로 분류된 기록을 모아두었습니다.</p>
 {/if}
 <hr style="border: solid 0.05em white;">
-{#each mock_data as d}
-	{#if data == '최근' || data == '모든 글'}
-		<br>
-		<div on:click={() => updateView(d.key)} on:keypress={() => updateView(d.key)} style="cursor:pointer">
-			<h1>{d.title}</h1>
-			<p>{d.date}</p>
-			<p>{d.tags}</p>
-		</div>
-	{:else if d.tags == data}
-		<br>
-		<div on:click={() => updateView(d.key)} on:keypress={() => updateView(d.key)} style="cursor:pointer">
-			<h1>{d.title}</h1>
-			<p>{d.date}</p>
-			<p>{d.tags}</p>
-		</div>
-	{/if}
-{/each}
+{#if mock_data.filter(d => data == '최근' || data == '모든 글' || d.tags == data).length > 0}
+	{#each mock_data as d}
+		{#if data == '최근' || data == '모든 글'}
+			<br>
+			<div on:click={() => updateView(d.key)} on:keypress={() => updateView(d.key)} style="cursor:pointer">
+				<h1>{d.title}</h1>
+				<p>{d.date}</p>
+				<p>{d.tags}</p>
+			</div>
+		{:else if d.tags == data}
+			<br>
+			<div on:click={() => updateView(d.key)} on:keypress={() => updateView(d.key)} style="cursor:pointer">
+				<h1>{d.title}</h1>
+				<p>{d.date}</p>
+				<p>{d.tags}</p>
+			</div>
+		{/if}
+	{/each}
+{:else}
+	<br>
+	<h2>여기엔 아무것도 없네요!</h2>
+{/if}
