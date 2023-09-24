@@ -7,7 +7,8 @@
 
 <style>
 	.container {
-		max-width: 800px;
+		width: 100%;
+		height: 100%;
 		margin: 0 auto;
 		padding: 2rem;
 		background-color: #fff;
@@ -35,6 +36,10 @@
 		border: 1px solid #ccc;
 		border-radius: 0.25rem;
 		box-sizing: border-box;
+	}
+
+	textarea {
+		min-height: 27rem;
 	}
 
 	button {
