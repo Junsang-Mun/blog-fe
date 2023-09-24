@@ -1,75 +1,40 @@
 <script>
-	import { createEventDispatcher } from 'svelte';
-	import 'carbon-components-svelte/css/g80.css';
+	import { createEventDispatcher } from "svelte";
+	import { searchArticleByTag } from "$lib/api.js";
+	import "carbon-components-svelte/css/g80.css";
 	export let data;
+	let article;
 	const dispatch = createEventDispatcher();
-
-	const mock_data = [
-		{
-			title: '개발을 잘 하는 방법',
-			content: '내용1',
-			date: '2020-01-01',
-			tags: '개발',
-			key: 'bf09b-dfy98f'
-		},
-		{
-			title: '청소를 했다',
-			content: '내용2',
-			date: '2020-01-01',
-			tags: '일상상',
-			key: 'h54av-4f5a4'
-		},
-		{
-			title: '졸지에 커뮤니티로 납치된 나',
-			content: '내용3',
-			date: '2020-01-01',
-			tags: '커뮤니티',
-			key: 'sb9f4-avd0u9'
-		},
-		{
-			title: '그런건 없다',
-			content: '내용4',
-			date: '2020-01-01',
-			tags: '개발',
-			key: 'veh0a-5hjin'
-		},
-	];
-
 	const updateView = (key) => {
-		dispatch('updateView', {new_page: 'article', new_data: key});
-	}
+		dispatch("updateView", { new_page: "article", new_data: key });
+	};
 </script>
 
-{#if data == '최근'}
+{#if data == "최근"}
 	<h1>최근 포스트</h1>
 	<p>최근에 찐 글을 모아두었습니다. 따끈따끈🔥</p>
-{:else if data == '모든 글'}
+{:else if data == "모든 글"}
 	<h1>{data}</h1>
 	<p>모든 글의 모음입니다.</p>
 {:else}
 	<h1>{data}</h1>
 	<p>{data} 태그로 분류된 기록을 모아두었습니다.</p>
 {/if}
-<hr style="border: solid 0.05em white;">
-{#if mock_data.filter(d => data == '최근' || data == '모든 글' || d.tags == data).length > 0}
-	{#each mock_data as d}
-		{#if data == '최근' || data == '모든 글'}
+<hr style="border: solid 0.05em white;" />
+
+{#await searchArticleByTag(data)}
+	<p>loading</p>
+{:then r}
+	{#if r.items && r.items.length > 0}
+		{#each r.items as item}
+			<h1 style="font-weight: 900; cursor: pointer;" on:click={() => updateView(item.key)}>{item.title}</h1>
+			<p>{item.date}</p>
+			<p>{item.tag}</p>
 			<br>
-			<div on:click={() => updateView(d.key)} on:keypress={() => updateView(d.key)} style="cursor:pointer">
-				<h1>{d.title}</h1>
-				<p>{d.date}</p>
-				<p>{d.tags}</p>
-			</div>
-		{:else if d.tags == data}
-			<br>
-			<div on:click={() => updateView(d.key)} on:keypress={() => updateView(d.key)} style="cursor:pointer">
-				<h1>{d.title}</h1>
-				<p>{d.date}</p>
-				<p>{d.tags}</p>
-			</div>
-		{/if}
-	{/each}
-{:else}
-	<br>
-	<h2>여기엔 아무것도 없네요!</h2>
-{/if}
+		{/each}
+	{:else}
+		<p>No items found</p>
+	{/if}
+{:catch error}
+	<p style="color: red">{error.message}</p>
+{/await}

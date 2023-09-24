@@ -66,7 +66,7 @@ export async function deleteArticle(article) {
 
 export async function searchArticleByTag(tag) {
 	try {
-		await fetch(`${import.meta.env.VITE_DATABASE_URL}/query`, {
+		const data = await fetch(`${import.meta.env.VITE_DATABASE_URL}/query`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -77,7 +77,8 @@ export async function searchArticleByTag(tag) {
 					"tag": tag,
 				}]
 			}),
-		});
+		})
+		return data.json();
 	} catch (error) {
 		console.error('Error:', error);
 	}
