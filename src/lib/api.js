@@ -13,7 +13,7 @@ function toStringByFormatting(source, delimiter = '-') {
 
 export async function createArticle(title, article, tag) {
 	try {
-		const response = await fetch(`${import.meta.env.VITE_API_URL}/items`, {
+		const response = await fetch(`${import.meta.env.VITE_DATABASE_URL}/items`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -37,7 +37,7 @@ export async function createArticle(title, article, tag) {
 
 export async function readArticle(key) {
 	try {
-		const response = await fetch(`${import.meta.env.VITE_API_URL}/items/${key}`, {
+		const response = await fetch(`${import.meta.env.VITE_DATABASE_URL}/items/${key}`, {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
@@ -51,13 +51,32 @@ export async function readArticle(key) {
 
 export async function deleteArticle(article) {
 	try {
-		await fetch(`${import.meta.env.VITE_API_URL}/items`, {
+		await fetch(`${import.meta.env.VITE_DATABASE_URL}/items`, {
 			method: 'DELETE',
 			headers: {
 				'Content-Type': 'application/json',
 				'X-API-KEY': import.meta.env.VITE_X_API_KEY,
 			},
 			body: JSON.stringify(article),
+		});
+	} catch (error) {
+		console.error('Error:', error);
+	}
+}
+
+export async function searchArticleByTag(tag) {
+	try {
+		await fetch(`${import.meta.env.VITE_DATABASE_URL}/query`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				'X-API-KEY': import.meta.env.VITE_X_API_KEY,
+			},
+			body: JSON.stringify({
+				"query": [{
+					"tag": tag,
+				}]
+			}),
 		});
 	} catch (error) {
 		console.error('Error:', error);
