@@ -11,7 +11,7 @@ function toStringByFormatting(source, delimiter = '-') {
 	return [year, month, day].join(delimiter);
 }
 
-export async function _createArticle(title, article, tag) {
+export async function createArticle(title, article, tag) {
 	fetch(`${import.meta.env.VITE_API_URL}/items`, {
 		method: 'POST',
 		headers: { 'Content-Type': 'application/json' },
@@ -27,7 +27,7 @@ export async function _createArticle(title, article, tag) {
 	})
 }
 
-export async function _readArticle(key) {
+export async function readArticle(key) {
 	fetch(`${import.meta.env.VITE_API_URL}/items/${key}`, {
 		method: 'GET',
 		headers: { 'Content-Type': 'application/json' },
@@ -35,7 +35,7 @@ export async function _readArticle(key) {
 	})
 }
 
-export async function _deleteArticle(article) {
+export async function deleteArticle(article) {
 	fetch(`${import.meta.env.VITE_API_URL}/items`, {
 		method: 'DELETE',
 		headers: { 'Content-Type': 'application/json' },
