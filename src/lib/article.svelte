@@ -34,7 +34,9 @@
 </style>
 
 {#await readArticle(data)}
-	<p>loading</p>
+	<div style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; padding-top:5rem">
+		<p> 로딩 중... </p>
+	</div>
 {:then r}
 	<div class=titleBar>
 		<h1 style="font-weight: 900; cursor: pointer;" on:click={() => copyUrl(r.key)}>{r.title}</h1>

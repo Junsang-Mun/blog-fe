@@ -14,7 +14,7 @@ p {
 	font-size: 1.3em !important;
 }
 
-html body:not(pre){
+html body * :not(pre){
 	font-family: 'IBM Plex Sans KR', sans-serif !important;
 	line-height: normal !important;
 }
