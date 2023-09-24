@@ -49,7 +49,7 @@
 	{#if d.key == data}
 		<div style="display: flex; align-items: center;">
 			<h1 style="font-weight: 900;">{d.title}  </h1>
-			<svg on:click={copyUrl(d.key)} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="2rem" height="2rem" style="cursor: pointer"><rect width="256" height="256" fill="none"/><path d="M127.88,196l-5.94,5.94a48,48,0,0,1-67.88-67.88L78.17,110A48,48,0,0,1,144,108" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/><path d="M128.12,60l5.94-5.94a48,48,0,0,1,67.88,67.88l-24.11,24.11A48,48,0,0,1,112,148" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/></svg>
+			<svg on:click={()=>{copyUrl(d.key)}} on:keydown={()=>{copyUrl(d.key)}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="2rem" height="2rem" style="cursor: pointer"><rect width="256" height="256" fill="none"/><path d="M127.88,196l-5.94,5.94a48,48,0,0,1-67.88-67.88L78.17,110A48,48,0,0,1,144,108" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/><path d="M128.12,60l5.94-5.94a48,48,0,0,1,67.88,67.88l-24.11,24.11A48,48,0,0,1,112,148" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/></svg>
 		</div>
 		<p>{d.date}</p>
 		<p>{d.tags}</p>
