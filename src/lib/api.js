@@ -67,9 +67,6 @@ export async function deleteArticle(article) {
 
 export async function searchArticleByTag(tag) {
 	try {
-		if (tag === '모든 글') { ///////////////////////////////////////////
-			return (readArticle()); ///////////////////////////////////////
-		} /////////////////////////////////////////////////////////////////
 		const data = await fetch(`${import.meta.env.VITE_DATABASE_URL}/query`, {
 			method: 'POST',
 			headers: {

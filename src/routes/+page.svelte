@@ -25,7 +25,7 @@
 	let pageToShow = 'main';
 	let data = '최근';
 	const urlParam = $page.url.searchParams.get('article');
-	const loggedIn = true;
+	const loggedIn = false;
 
 	function changePageToShow(new_page, new_data) {
 		pageToShow = new_page;
@@ -44,7 +44,6 @@
 	</svelte:fragment>
 	<HeaderNav>
 		<HeaderNavItem href="/" text="💻개발바닥🐶 홈" on:click={() => changePageToShow('main')}/>
-		<HeaderNavItem href="/" text="최근 포스트" on:click={() => changePageToShow('tag', '최근')}/>
 		<HeaderNavMenu text="Contacts" >
 			<HeaderNavItem href="mailto:mun.js@aol.com" text="Mail" />
 			<HeaderNavItem href="https://github.com/Junsang-Mun" text="GitHub" />
@@ -59,16 +58,18 @@
 	<SideNavItems>
 		<SideNavLink href="/" text="💻개발바닥🐶 홈" on:click={() => changePageToShow('main')}/>
 			<SideNavDivider />
-		<SideNavLink text="모든 글 📝" on:click={() => changePageToShow('tag', '모든 글')}/>
 		<SideNavLink text="개발 🐶🐾" on:click={() => changePageToShow('tag', '개발')} />
 		<SideNavLink text="커뮤니티 🎤" on:click={() => changePageToShow('tag', '커뮤니티')}/>
 		<SideNavLink text="일상 🏡" on:click={() => changePageToShow('tag', '일상')}/>
+		<SideNavLink text="𝟜𝟚" on:click={() => changePageToShow('tag', '42')}/>
 		<SideNavDivider />
 		<SideNavLink text="검색 🔎" on:click={() => changePageToShow('search')}/>
 		<SideNavLink text="Copyright Notice" on:click={() => changePageToShow('copyright')}/>
+		<SideNavDivider />
 		{#if loggedIn}
-			<SideNavDivider />
 			<SideNavLink text="Admin: 글 쓰기" on:click={() => changePageToShow('write')}/>
+		{:else}
+			<SideNavLink text="로그인" href="/admin"/>
 		{/if}
 	</SideNavItems>
 </SideNav>
