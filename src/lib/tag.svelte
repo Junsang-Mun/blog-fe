@@ -7,6 +7,7 @@
 	const dispatch = createEventDispatcher();
 	const updateView = (key) => {
 		dispatch("updateView", { new_page: "article", new_data: key });
+		console.log(`updateViewDEBUG: new_page: article, new_data: ${key}`)
 	};
 </script>
 
@@ -27,6 +28,7 @@
 {:then r}
 	{#if r.items && r.items.length > 0}
 		{#each r.items as item}
+			<br>
 			<h1 style="font-weight: 900; cursor: pointer;" on:click={() => updateView(item.key)}>{item.title}</h1>
 			<p>{item.date}</p>
 			<p>{item.tag}</p>

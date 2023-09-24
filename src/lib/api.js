@@ -37,13 +37,14 @@ export async function createArticle(title, article, tag) {
 
 export async function readArticle(key) {
 	try {
-		const response = await fetch(`${import.meta.env.VITE_DATABASE_URL}/items/${key}`, {
+		const data = await fetch(`${import.meta.env.VITE_DATABASE_URL}/items/${key}`, {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
 				'X-API-KEY': import.meta.env.VITE_X_API_KEY,
 			},
 		});
+		return data.json();
 	} catch (error) {
 		console.error('Error:', error);
 	}

@@ -27,7 +27,7 @@
 	const urlParam = $page.url.searchParams.get('article');
 	const loggedIn = true;
 
-	function changePageToShow(new_page, new_data = undefined) {
+	function changePageToShow(new_page, new_data) {
 		pageToShow = new_page;
 		data = new_data;
 	}
