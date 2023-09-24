@@ -2,11 +2,11 @@
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 	import 'carbon-components-svelte/css/g80.css';
-	import Article from './article.svelte';
-	import Tag from './tag.svelte';
-	import Search from './search.svelte';
-	import Copyright from './copyright.svelte'
-	import Main from './main.svelte';
+	import Article from '$lib/article.svelte';
+	import Tag from '$lib/tag.svelte';
+	import Search from '$lib/search.svelte';
+	import Copyright from '$lib/copyright.svelte'
+	import Main from '$lib/main.svelte';
 	import {
 		Header,
 		HeaderUtilities,

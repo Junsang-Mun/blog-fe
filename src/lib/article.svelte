@@ -1,6 +1,6 @@
 <script>
 	import 'carbon-components-svelte/css/g80.css';
-	import Error from './+error.svelte';
+	import Error from './error.svelte';
 	let shownDataCount = 0;
 	export let data;
 
