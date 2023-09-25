@@ -28,7 +28,7 @@
 			<br>
 		{/each}
 	{:else}
-		<p>No items found</p>
+		<p>아직 {data} 태그로 쓰인 글은 없네요!</p>
 	{/if}
 {:catch error}
 	<p style="color: red">{error.message}</p>

@@ -68,10 +68,9 @@
 		<SideNavDivider />
 		<SideNavLink text="검색 🔎" on:click={() => changePageToShow('search')}/>
 		<SideNavLink text="Copyright Notice" on:click={() => changePageToShow('copyright')}/>
-		<SideNavDivider />
+			<SideNavDivider />
 		{#if loggedIn}
 			<SideNavLink text="Admin: 글 쓰기" on:click={() => changePageToShow('write')}/>
-		{:else}
 			<SideNavLink text="로그인" on:click={() => newLogin()}/>
 		{/if}
 	</SideNavItems>
