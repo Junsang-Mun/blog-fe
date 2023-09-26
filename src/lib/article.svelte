@@ -5,7 +5,7 @@
 	export let data;
 
 	const copyUrl = (key) => {
-		navigator.clipboard.writeText(`http://localhost:5173/?article=${key}`);
+		navigator.clipboard.writeText(`https://junsang.dev/?article=${key}`);
 	}
 </script>
 
