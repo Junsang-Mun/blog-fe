@@ -24,7 +24,6 @@
 	let isSideNavOpen = false;
 	let pageToShow = 'main';
 	let data = '최근';
-	const urlParam = $page.url.searchParams.get('article');
 	const loggedIn = false;
 
 	function changePageToShow(new_page, new_data) {
@@ -35,8 +34,8 @@
 		window.location.href = `https://github.com/login/oauth/authorize?client_id=${import.meta.env.VITE_GH_CLIENT_ID}`;
 	}
 	onMount(() => {
-		if (urlParam) {
-			changePageToShow('article', urlParam);
+		if ($page.url.searchParams.has('article')) {
+			changePageToShow('article', $page.url.searchParams.get('article'));
 		}
 	});
 </script>
@@ -88,6 +87,6 @@
 	{:else if pageToShow == 'write'}
 		<Write />
 	{:else}
-		<Main {data}/>
+		<Main />
 	{/if}
 </Content>
