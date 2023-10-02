@@ -6,3 +6,4 @@ micros:
     engine: svelte-kit
     primary: true
     dev: npm run dev
+    public: true
