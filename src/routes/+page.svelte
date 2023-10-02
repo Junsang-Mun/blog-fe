@@ -47,7 +47,7 @@
 	<HeaderNav>
 		<HeaderNavItem href="/" text="💻개발바닥🐶 홈" on:click={() => changePageToShow('main')}/>
 		<HeaderNavMenu text="Contacts" >
-			<HeaderNavItem href="mailto:mun.js@aol.com" text="Mail" />
+			<HeaderNavItem href="mailto:iam@junsang.dev" text="Mail" />
 			<HeaderNavItem href="https://github.com/Junsang-Mun" text="GitHub" />
 			<HeaderNavItem href="https://www.linkedin.com/in/%EC%A4%80%EC%83%81-%EB%AC%B8-b567b027a/" text="LinkedIn" />
 		</HeaderNavMenu>
