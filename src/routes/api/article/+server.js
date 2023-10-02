@@ -1,14 +1,13 @@
 export async function POST({ request }) {
-	const { tag } = await request.json();
+	const { key } = await request.json();
 
 	try {
-		const response = await fetch(`${import.meta.env.VITE_DATABASE_URL}/query`, {
-			method: 'POST',
+		const response = await fetch(`${import.meta.env.VITE_DATABASE_URL}/items/${key}`, {
+			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
 				'X-API-KEY': import.meta.env.VITE_X_API_KEY,
 			},
-			body: JSON.stringify({ query: [{ tag: tag }] }),
 		});
 
 		if (response.status === 200) {
