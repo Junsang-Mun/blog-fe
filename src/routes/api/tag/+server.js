@@ -1,12 +1,44 @@
 import { json, error } from '@sveltejs/kit';
 
-export function POST({ request }) {
+export async function POST({ request }) {
 	const tag = request.body.get('tag');
-	const d = max - min;
-
-	if (isNaN(d) || d < 0) {
-		throw error(400, 'min and max must be numbers, and min must be less than max');
+	try {
+		const data = await fetch(`${import.meta.env.VITE_DATABASE_URL}/query`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				'X-API-KEY': import.meta.env.VITE_X_API_KEY,
+			},
+			body: JSON.stringify({
+				"query": [{
+					"tag": tag,
+				}]
+			}),
+		});
+		return new Response(data.json());
+	} catch (e) {
+		throw error(400, e);
 	}
-	const random = min + Math.random() * d;
-	return new Response(String(random));
 }
+
+/*
+export async function searchArticleByTag(tag) {
+	try {
+		const data = await fetch(`${import.meta.env.VITE_DATABASE_URL}/query`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				'X-API-KEY': import.meta.env.VITE_X_API_KEY,
+			},
+			body: JSON.stringify({
+				"query": [{
+					"tag": tag,
+				}]
+			}),
+		})
+		return data.json();
+	} catch (error) {
+		console.error('Error:', error);
+	}
+}
+*/
