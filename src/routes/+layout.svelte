@@ -2,17 +2,12 @@
   import "carbon-components-svelte/css/all.css";
   import {
     Header,
-    HeaderNav,
-    HeaderNavItem,
-    HeaderNavMenu,
     SkipToContent,
     Content,
     Grid,
     Row,
     Column,
   } from "carbon-components-svelte";
-
-  let isSideNavOpen = false;
 </script>
 
 <Header
