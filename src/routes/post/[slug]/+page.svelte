@@ -47,12 +47,10 @@
     {:else if block.type === "numbered_list_item"}
       <li>{block.numbered_list_item.rich_text[0].plain_text}</li>
     {:else if block.type === "image"}
-      <img src={block.image.file.url} alt="Body" />
+      <img src={block.image.file?.url} alt="Body" />
     {:else if block.type === "embed"}
-      <iframe src={block.embed.url} title="embedded" />
+      <iframe src={block.embed?.url} title="embedded" />
     {:else if block.type === "divider"}
-      <hr />
-    {:else if block.type === "bookmark"}
       <hr />
     {:else if block.type === "code"}
       <CodeSnippet type="multi">
@@ -68,5 +66,45 @@
   img,
   iframe {
     max-width: 100%;
+  }
+
+  /* 제목 스타일 */
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #222;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-top: 24px;
+    margin-bottom: 12px;
+    color: #333;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+    font-weight: 500;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #444;
+  }
+
+  li {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    line-height: 1.5;
+    color: #333;
+  }
+
+  /* 줄 바꿈 스타일 */
+  hr {
+    margin: 1.5em 0;
+  }
+
+  a:hover {
+    text-decoration: underline;
   }
 </style>
