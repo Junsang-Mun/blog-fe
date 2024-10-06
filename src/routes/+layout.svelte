@@ -26,16 +26,6 @@
   <svelte:fragment slot="skip-to-content">
     <SkipToContent />
   </svelte:fragment>
-  <HeaderNav>
-    <HeaderNavItem href="/" text="Link 1" />
-    <HeaderNavItem href="/" text="Link 2" />
-    <HeaderNavItem href="/" text="Link 3" />
-    <HeaderNavMenu text="Menu">
-      <HeaderNavItem href="/" text="Link 1" />
-      <HeaderNavItem href="/" text="Link 2" />
-      <HeaderNavItem href="/" text="Link 3" />
-    </HeaderNavMenu>
-  </HeaderNav>
 </Header>
 
 <Content>
