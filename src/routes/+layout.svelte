@@ -13,7 +13,6 @@
 <Header
   company="A"
   platformName="Personal Blog"
-  bind:isSideNavOpen
   on:click={() => {
     window.location.href = "/";
   }}
